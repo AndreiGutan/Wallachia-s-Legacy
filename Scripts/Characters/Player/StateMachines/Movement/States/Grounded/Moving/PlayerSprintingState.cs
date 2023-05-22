@@ -16,8 +16,6 @@ namespace MovementSystem
 
         public override void Enter()
         {
-            Debug.Log("sdsd");
-
             stateMachine.ReusableData.MovementSpeedModifier = groundedData.SprintData.SpeedModifier;
 
             base.Enter();

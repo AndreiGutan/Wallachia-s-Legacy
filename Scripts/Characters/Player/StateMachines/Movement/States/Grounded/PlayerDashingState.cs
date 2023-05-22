@@ -17,7 +17,6 @@ namespace MovementSystem
 
         public override void Enter()
         {
-            Debug.Log("asta0");
             stateMachine.ReusableData.MovementSpeedModifier = groundedData.DashData.SpeedModifier;
 
             base.Enter();
@@ -60,15 +59,13 @@ namespace MovementSystem
 
         public override void OnAnimationTransitionEvent()
         {
-            Debug.Log("asta2");
             if (stateMachine.ReusableData.MovementInput == Vector2.zero)
             {
-                Debug.Log("asta??");
                 stateMachine.ChangeState(stateMachine.HardStoppingState);
 
                 return;
             }
-            Debug.Log("asta1");
+
             stateMachine.ChangeState(stateMachine.SprintingState);
         }
 
@@ -77,8 +74,6 @@ namespace MovementSystem
             base.AddInputActionsCallbacks();
 
             stateMachine.Player.Input.PlayerActions.Movement.performed += OnMovementPerformed;
-            Debug.Log("A1");
-
         }
 
         protected override void RemoveInputActionsCallbacks()
@@ -86,7 +81,6 @@ namespace MovementSystem
             base.RemoveInputActionsCallbacks();
 
             stateMachine.Player.Input.PlayerActions.Movement.performed -= OnMovementPerformed;
-            Debug.Log("A2");
         }
 
         protected override void OnMovementPerformed(InputAction.CallbackContext context)
@@ -118,7 +112,6 @@ namespace MovementSystem
         {
             if (!IsConsecutive())
             {
-                Debug.Log("maybe?????");
                 consecutiveDashesUsed = 0;
             }
 
@@ -128,7 +121,6 @@ namespace MovementSystem
             {
                 consecutiveDashesUsed = 0;
 
-                Debug.Log("?????");
                 stateMachine.Player.Input.DisableActionFor(stateMachine.Player.Input.PlayerActions.Dash, groundedData.DashData.DashLimitReachedCooldown);
             }
         }

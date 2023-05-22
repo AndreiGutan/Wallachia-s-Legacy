@@ -33,13 +33,10 @@ namespace MovementSystem
 
         public void TriggerOnMovementStateAnimationTransitionEvent()
         {
-            Debug.Log("nu?");
             if (IsInAnimationTransition())
             {
-                Debug.Log("nu1?");
                 return;
             }
-            Debug.Log("nu2?");
             player.OnMovementStateAnimationTransitionEvent();
         }
 
